@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <nav>
+        <ul class="navbar">
+            <li>cafeterías</li>
+            <li>servicios</li>
+            <li>about us</li>
+            <li>fueled by hola coffe</li>
+            <li>faqs</li>
+            <li>blog</li>
+            <li>shop</li>
+        </ul>
+    </nav>
+
+    <div class="main-grid">
+        <div class="main">
+            <h2 class="copy">Hola</h2>
+            <h2 class="copy">Coffee.</h2>
+            <h2 class="copy">Adiós</h2>
+            <h2 class="copy" id="adjetivo">torrefacto.</h2>
+            <div class="button-absolute">Hola</div>
+        </div>
+        <div class="location"></div>
+        <div class="roastery"></div>
+        <div class="info"></div>
+    </div>
+
+    <script style="display: none;">
+        var texts = new Array();
+        texts.push("torrefacto.");
+        texts.push("estrés.");
+        texts.push("waste.");
+
+        var point = 0;
+
+        function changeText() {
+            $('#adjetivo').html(texts[point]);
+            if (point < (texts.length - 1)) {
+                point++;
+            } else {
+                point = 0;
+            }
+
+        }
+        setInterval(changeText, 5000); /*Call it here*/
+        changeText();
+    </script>
+
+</body>
+
+
+</html>
