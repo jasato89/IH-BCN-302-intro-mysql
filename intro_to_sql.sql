@@ -1,4 +1,4 @@
--- Crear schema nuevo
+drop schema IF EXISTS my_first_database;
 CREATE SCHEMA my_first_database;
 
 -- Utilizar ese schema por defecto
@@ -109,6 +109,28 @@ SELECT * FROM grade ORDER BY student_name ASC, score DESC;
 
 SELECT DISTINCT student_name from GRADE;
 
+SELECT * FROM grade;
 
 
+-- student name and score for all CS103 sections sorted by the score from highest to lowest.
 
+SELECT student_name, score FROM grade WHERE section_id LIKE "CS103%" ORDER BY score desc;
+
+-- an alphabetical list of distinct students whose first names fall alphabetically from L to R
+
+SELECT DISTINCT student_name FROM grade WHERE student_name between "L" AND "R" ORDER BY student_name DESC;
+
+-- JOINS: Agrupar dos o más tablas en una vista
+
+select * from grade;
+
+select * from course;
+
+select student_name, score, instructor from grade JOIN section ON section_id = section.id;
+
+select student_name, section_id, score, instructor
+from grade 
+LEFT JOIN section ON grade.section_id = section.id 
+LEFT JOIN course ON section.course_code = course.course_code
+WHERE course_name = "Intro to Databases"
+order by student_name desc;
